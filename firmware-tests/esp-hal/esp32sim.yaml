@@ -1,0 +1,13 @@
+name: esp-hal-blinky
+firmware: esp32_hal_blinky
+components:
+  - {id: led, type: led, color: green}
+  - {id: r, type: resistor, value: 220}
+connections:
+  - [esp32.D15, r.1]
+  - [r.2, led.A]
+  - [led.C, GND]
+test:
+  - expect: {id: led, brightness: ">0.3", within: 1500ms}
+  - expect: {id: led, brightness: "<0.05", within: 1500ms}
+  - expect: {id: led, brightness: ">0.3", within: 1500ms}

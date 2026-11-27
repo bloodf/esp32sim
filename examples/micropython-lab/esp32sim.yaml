@@ -1,0 +1,130 @@
+# MicroPython v1.23 (ESP-IDF 5.0) running on the emulator, with a lab full of parts.
+# Open the serial monitor and type Python at the >>> prompt.
+name: micropython-lab
+board: esp32-devkit-v1
+firmware: micropython.bin
+speed: 1.0
+components:
+  - {id: oled, type: ssd1306, address: 0x3C, x: 760, y: 40}
+  - {id: lcd, type: lcd1602-i2c, address: 0x27, x: 760, y: 170}
+  - {id: imu, type: mpu6050, x: 990, y: 60}
+  - {id: baro, type: bmp280, address: 0x76, x: 1000, y: 170}
+  - {id: io, type: pcf8574, address: 0x20, x: 980, y: 260}
+  - {id: adc, type: ads1115, address: 0x48, x: 1000, y: 360}
+  - {id: light, type: bh1750, x: 1150, y: 170}
+  - {id: rtc, type: ds3231, x: 420, y: 560}
+  - {id: strip, type: ws2812, count: 8, x: 440, y: 20}
+  - {id: dht, type: dht22, temperature: 21.5, humidity: 55, x: 420, y: 420}
+  - {id: sonar, type: hc-sr04, distance: 42, x: 865, y: 590}
+  - {id: servo, type: servo, x: 800, y: 520}
+  - {id: btn, type: pushbutton, x: 430, y: 330}
+  - {id: led, type: led, color: blue, x: 700, y: 410}
+  - {id: r1, type: resistor, value: 330, x: 645, y: 380}
+  - {id: pot, type: potentiometer, value: 10k, position: 0.6, x: 890, y: 460}
+  - {id: pio_led, type: led, color: red, x: 1150, y: 300}
+  - {id: r2, type: resistor, value: 330, x: 1100, y: 330}
+  - {id: tft, type: ili9341, x: 1200, y: 420}
+  - {id: sd, type: sd-card, size_mb: 32, x: 1150, y: 40}
+connections:
+  - [esp32.D21, oled.SDA, lcd.SDA, imu.SDA, baro.SDA, io.SDA, adc.SDA, light.SDA]
+  - [esp32.D22, oled.SCL, lcd.SCL, imu.SCL, baro.SCL, io.SCL, adc.SCL, light.SCL]
+  - [3V3, oled.VCC, imu.VCC, baro.VCC, io.VCC, adc.VDD, light.VCC, rtc.VCC, dht.VCC, sonar.VCC]
+  - [GND, oled.GND, lcd.GND, imu.GND, baro.GND, io.GND, adc.GND, light.GND, rtc.GND, dht.GND, sonar.GND, strip.GND, servo.GND]
+  - [5V, lcd.VCC, strip.VCC, servo.V+]
+  - [esp32.D32, rtc.SDA]
+  - [esp32.D33, rtc.SCL]
+  - [esp32.D5, strip.DIN]
+  - [esp32.D27, dht.SDA]
+  - [esp32.D12, sonar.TRIG]
+  - [esp32.D14, sonar.ECHO]
+  - [esp32.D13, servo.PWM]
+  - [esp32.D15, btn.1]
+  - [btn.2, GND]
+  - [esp32.D4, r1.1]
+  - [r1.2, led.A]
+  - [led.C, GND]
+  - [pot.1, 3V3]
+  - [pot.2, GND]
+  - [pot.W, adc.A0]
+  - [io.P0, r2.1]
+  - [r2.2, pio_led.C]
+  - [pio_led.A, 3V3]
+  - [esp32.D23, tft.MOSI]
+  - [esp32.D25, tft.SCK]
+  - [esp32.D19, tft.CS]
+  - [esp32.D18, tft.DC]
+  - [esp32.D26, tft.RESET]
+  - [3V3, tft.VCC, tft.LED]
+  - [GND, tft.GND]
+  - [esp32.D16, sd.SCK]
+  - [esp32.D17, sd.MOSI]
+  - [esp32.D34, sd.MISO]
+  - [esp32.D2, sd.CS]
+  - [3V3, sd.VCC]
+  - [GND, sd.GND]
+layout:
+  board: {x: 185, y: 55}
+test:
+  - expect_serial: ">>>"
+  - send: "from machine import Pin, I2C, SoftI2C, PWM; import time\r"
+  - send: "i2c = I2C(0, scl=Pin(22), sda=Pin(21)); print('scan', i2c.scan())\r"
+  - expect_serial: "scan [32, 35, 39, 60, 72, 104, 118]"
+  - send: "print('whoami', hex(i2c.readfrom_mem(0x68, 0x75, 1)[0]), hex(i2c.readfrom_mem(0x76, 0xD0, 1)[0]))\r"
+  - expect_serial: "whoami 0x68 0x58"
+  - send: "i2c.writeto_mem(0x68, 0x6B, b'\\x00'); d=i2c.readfrom_mem(0x68, 0x3B, 6); print('az', int.from_bytes(d[4:6],'big'))\r"
+  - expect_serial: "az 16384"
+  - send: "i2c.writeto(0x20, b'\\xfe'); print('pcf', i2c.readfrom(0x20, 1))\r"
+  - expect: {id: pio_led, brightness: ">0.2", within: 500ms}
+  - send: "i2c.writeto_mem(0x48, 1, b'\\xc3\\x83'); time.sleep_ms(10); v=int.from_bytes(i2c.readfrom_mem(0x48, 0, 2),'big'); print('ads', v)\r"
+  - expect_serial: "ads 10560"
+  - send: "i2c.writeto(0x23, b'\\x10'); time.sleep_ms(180); print('lux', int.from_bytes(i2c.readfrom(0x23, 2),'big'))\r"
+  - expect_serial: "lux 360"
+  - send: "for c in (0xAE,0xD5,0x80,0xA8,0x3F,0xD3,0,0x40,0x8D,0x14,0x20,0,0xA1,0xC8,0xDA,0x12,0x81,0xCF,0xD9,0xF1,0xDB,0x40,0xA4,0xA6,0xAF): i2c.writeto(0x3C, bytes([0x80, c]))\r\r"
+  - send: "i2c.writeto(0x3C, b'\\x40' + bytes([0xFF if (i//8)%2 else 0 for i in range(1024)])); print('oled', 'done')\r"
+  - expect_serial: "oled done"
+  - expect: {id: oled, on: true}
+  - send: "import neopixel; np = neopixel.NeoPixel(Pin(5), 8); np[0]=(255,0,0); np[7]=(0,0,255); np.write(); print('np', 'ok')\r"
+  - expect_serial: "np ok"
+  - expect: {id: strip, "pixels[0]": ff0000, "pixels[7]": 0000ff, within: 300ms}
+  - send: "import dht; s = dht.DHT22(Pin(27)); s.measure(); print('dht', s.temperature(), s.humidity())\r"
+  - expect_serial: "dht 21.5 55.0"
+  - send: "import machine; tp = Pin(12, Pin.OUT, value=0); ep = Pin(14, Pin.IN)\r"
+  - send: "def ping():\r  tp.value(1); time.sleep_us(10); tp.value(0)\r  return machine.time_pulse_us(ep, 1, 30000)\r\r"
+  - send: "print('sonar_us', ping(), 'cm', ping() / 58.3)\r"
+  - expect_serial: "sonar_us 24"
+  - set: {id: sonar, distance: 150}
+  - send: "print('far_cm', round(ping() / 58.3))\r"
+  - expect_serial: "far_cm 150"
+  - send: "p = PWM(Pin(13), freq=50, duty_u16=int(65535*1.5/20)); time.sleep_ms(100); print('servo set')\r"
+  - expect_serial: "servo set"
+  - expect: {id: servo, angle: ">85", within: 300ms}
+  - send: "b = Pin(15, Pin.IN, Pin.PULL_UP); print('btn', b.value())\r"
+  - expect_serial: "btn 1"
+  - press: btn
+  - send: "print('btn', b.value())\r"
+  - expect_serial: "btn 0"
+  - release: btn
+  - send: "Pin(4, Pin.OUT).value(1); print('led on')\r"
+  - expect: {id: led, brightness: ">0.1", within: 500ms}
+  - send: "si = SoftI2C(scl=Pin(33), sda=Pin(32)); print('soft', si.scan()); print('sec', si.readfrom_mem(0x68, 0, 3))\r"
+  - expect_serial: "soft [104]"
+  - send: "spi = machine.SPI(2, baudrate=20000000, sck=Pin(25), mosi=Pin(23)); cs = Pin(19, Pin.OUT, value=1); dc = Pin(18, Pin.OUT); Pin(26, Pin.OUT, value=1)\r"
+  - send: "def cmd(c, d=b''): cs(0); dc(0); spi.write(bytes([c])); dc(1); d and spi.write(d); cs(1)\r\r"
+  - send: "cmd(0x11); cmd(0x3A, b'\\x55'); cmd(0x29); cmd(0x2A, b'\\x00\\x10\\x00\\x7f'); cmd(0x2B, b'\\x00\\x20\\x00\\x9f'); cmd(0x2C, b'\\x07\\xe0' * 14336); print('tft', 'ok')\r"
+  - expect_serial: "tft ok"
+  - expect: {id: tft, lit: 14336, on: true}
+  - send: "import os; sd = machine.SDCard(slot=3, sck=16, mosi=17, miso=34, cs=2); os.mount(sd, '/sd'); f = open('/sd/log.csv', 'w'); f.write('t,temp\\\\n1,21.5\\\\n'); f.close(); print('files', os.listdir('/sd'))\r"
+  - expect_serial: "files ['log.csv']"
+  - send: "print('csv', open('/sd/log.csv').read().split()); os.umount('/sd')\r"
+  - expect_serial: "csv ['t,temp', '1,21.5']"
+  - expect: {id: sd, "files[0].path": /log.csv, "files[0].size": 14}
+  - send: "import esp32; t0 = time.ticks_ms(); machine.lightsleep(700); print('light', time.ticks_diff(time.ticks_ms(), t0) >= 690)\r"
+  - expect_serial: "light True"
+  - send: "machine.RTC().memory(b'kept'); p = Pin(15, Pin.IN, Pin.PULL_UP); esp32.wake_on_ext0(pin=p, level=0); machine.deepsleep()\r"
+  - wait: 2s
+  - press: btn
+  - wait: 200ms
+  - release: btn
+  - expect_serial: "MicroPython v1.23.0"
+  - send: "import machine; print('woke', machine.reset_cause() == machine.DEEPSLEEP_RESET, machine.wake_reason() == machine.EXT0_WAKE, machine.RTC().memory())\r"
+  - expect_serial: "woke True True b'kept'"

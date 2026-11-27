@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = ["crates/xtensa-core", "crates/esp32-soc", "crates/devices", "crates/esp32sim"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[profile.release]
+opt-level = 3
+debug = 1
+codegen-units = 4
+
+[profile.dev]
+opt-level = 1

@@ -1,0 +1,45 @@
+[package]
+name = "esp32sim-desktop"
+version = "0.1.0"
+edition = "2021"
+description = "esp32sim desktop app (Tauri): the emulator, circuit editor and IDE in a native window"
+license = "MIT"
+rust-version = "1.90"
+
+# A separate workspace: the main workspace (and its tests) must not need the
+# WebKitGTK development packages that Tauri links against on Linux.
+[workspace]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[lib]
+name = "esp32sim_desktop"
+path = "src/lib.rs"
+
+[[bin]]
+name = "esp32sim-desktop"
+path = "src/main.rs"
+required-features = ["native"]
+
+[dependencies]
+esp32sim = { path = "../../crates/esp32sim" }
+tauri = { version = "2", default-features = false , features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+url = "2"
+
+[features]
+default = ["native"]
+# the real app: system WebView (WebKitGTK on Linux, WebView2 on Windows, WKWebView on macOS)
+native = ["tauri/wry", "tauri/compression", "tauri/common-controls-v6", "tauri/dynamic-acl", "tauri/x11", "tauri/dbus"]
+# tests on Tauri's mock runtime (no WebView needed):
+#   cargo test --no-default-features --features mock
+mock = ["tauri/test"]
+# the developer tools menu entry in release builds
+devtools = ["tauri/devtools"]
+
+[profile.release]
+opt-level = 3
+codegen-units = 4
+strip = "debuginfo"

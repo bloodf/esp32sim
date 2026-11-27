@@ -1,0 +1,57 @@
+# Prebuilt Arduino-ESP32 (IDF 4.4) firmware from the esp32-arduino-python package:
+# a serial command protocol (PING, PINSET, PINREAD, ADCREAD, DHT11 ...).
+name: arduino-serial-io
+board: esp32-devkit-v1
+firmware: firmware.bin
+speed: 1.0
+components:
+  - {id: led, type: led, color: green, x: 560, y: 80}
+  - {id: r_led, type: resistor, value: 220, x: 460, y: 80}
+  - {id: relay, type: relay, x: 560, y: 180}
+  - {id: lamp, type: led, color: yellow, x: 700, y: 180}
+  - {id: r_lamp, type: resistor, value: 330, x: 660, y: 260}
+  - {id: pot, type: potentiometer, value: 10k, position: 0.25, x: 420, y: 340}
+  - {id: ldr, type: ldr, lux: 200, x: 520, y: 420}
+  - {id: r_ldr, type: resistor, value: 10k, x: 620, y: 420}
+  - {id: dht, type: dht11, temperature: 23.5, humidity: 48, x: 400, y: 480}
+connections:
+  - [esp32.D25, r_led.1]
+  - [r_led.2, led.A]
+  - [led.C, GND]
+  - [esp32.D26, relay.IN]
+  - [relay.VCC, 5V]
+  - [relay.GND, GND]
+  - [relay.COM, 3V3]
+  - [relay.NO, r_lamp.1]
+  - [r_lamp.2, lamp.A]
+  - [lamp.C, GND]
+  - [pot.1, 3V3]
+  - [pot.2, GND]
+  - [pot.W, esp32.D32]
+  - [ldr.1, 3V3]
+  - [ldr.2, r_ldr.1, esp32.D33]
+  - [r_ldr.2, GND]
+  - [dht.VCC, 3V3]
+  - [dht.GND, GND]
+  - [dht.SDA, esp32.D27]
+test:
+  - expect_serial: "传感器系统初始化完成"
+  - send: "PING\n"
+  - expect_serial: "PONG"
+  - send: "PINSET:25:1\n"
+  - expect: {id: led, brightness: ">0.3", within: 200ms}
+  - send: "PINSET:26:1\n"
+  - expect: {id: lamp, brightness: ">0.3", within: 200ms}
+  - send: "ADCREAD:32\n"
+  - expect_serial: "OK:30"
+  - set: {id: pot, value: 0.9}
+  - send: "ADCREAD:32\n"
+  - expect_serial: "OK:4"
+  - send: "SET:SENSOR:DHT11\n"
+  - expect_serial: "OK:SENSOR MODE DHT11"
+  - send: "READ:ALL\n"
+  - expect_serial: "23"
+  - set: {id: dht, temperature: 31, humidity: 60}
+  - wait: 2.5s
+  - send: "READ:ALL\n"
+  - expect_serial: "31"

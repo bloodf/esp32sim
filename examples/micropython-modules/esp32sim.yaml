@@ -1,0 +1,128 @@
+# MicroPython exercising 1-Wire, SPI RFID, load cell, current sensor and motor drivers.
+# The MFRC522 / HX711 drivers are plain .py files pasted at the REPL (see the test).
+name: micropython-modules
+board: esp32-devkit-v1
+firmware: micropython.bin
+speed: 1.0
+layout:
+  board: {x: 420, y: 40}
+components:
+  - {id: t1, type: ds18b20, temperature: 22.5, x: 140, y: 60}
+  - {id: t2, type: ds18b20, temperature: -5.25, x: 220, y: 60}
+  - {id: rpu, type: resistor, value: 4.7k, x: 60, y: 150}
+  - {id: rfid, type: mfrc522, x: 760, y: 40}
+  - {id: scale, type: hx711, weight: 0, x: 120, y: 260}
+  - {id: ina, type: ina219, x: 760, y: 200}
+  - {id: rload, type: resistor, value: 220, x: 900, y: 300}
+  - {id: load, type: led, color: red, x: 980, y: 300}
+  - {id: motors, type: l298n, x: 120, y: 420}
+  - {id: nema, type: a4988, x: 760, y: 420}
+  - {id: geared, type: uln2003, x: 120, y: 560}
+  - {id: ir, type: ir-receiver, x: 800, y: 560}
+  - {id: gps, type: gps-neo6m, lat: 40.4168, lon: -3.7038, x: 980, y: 40}
+  - {id: bt, type: hc-05, x: 980, y: 160}
+connections:
+  # 1-Wire bus with two sensors and the pull-up
+  - [esp32.D4, t1.DQ, t2.DQ, rpu.1]
+  - [rpu.2, 3V3]
+  - [3V3, t1.VDD, t2.VDD, rfid.3.3V, scale.VCC, ina.VCC, nema.VDD]
+  - [GND, t1.GND, t2.GND, rfid.GND, scale.GND, ina.GND, load.C, motors.GND, nema.GND, geared.GND]
+  # MFRC522 on VSPI
+  - [esp32.D18, rfid.SCK]
+  - [esp32.D23, rfid.MOSI]
+  - [esp32.D19, rfid.MISO]
+  - [esp32.D5, rfid.SDA]
+  # HX711
+  - [esp32.D16, scale.DT]
+  - [esp32.D17, scale.SCK]
+  # INA219 measuring a LED load on 5 V
+  - [esp32.D21, ina.SDA]
+  - [esp32.D22, ina.SCL]
+  - [5V, ina.VIN+, motors.5V, geared.VCC]
+  - [ina.VIN-, rload.1]
+  - [rload.2, load.A]
+  # L298N
+  - [esp32.D25, motors.ENA]
+  - [esp32.D26, motors.IN1]
+  - [esp32.D33, motors.IN2]
+  # A4988
+  - [esp32.D13, nema.STEP]
+  - [esp32.D14, nema.DIR]
+  # IR receiver on an input-only pin
+  - [esp32.D34, ir.OUT]
+  - [ir.GND, GND]
+  - [ir.VCC, 3V3]
+  # GPS on UART2 RX (GPIO35), HC-05 on UART1 (RX GPIO36, TX GPIO2, STATE GPIO39)
+  - [esp32.D35, gps.TX]
+  - [3V3, gps.VCC, bt.VCC]
+  - [GND, gps.GND, bt.GND]
+  - [esp32.VP, bt.TXD]
+  - [esp32.D2, bt.RXD]
+  - [esp32.VN, bt.STATE]
+  # 28BYJ-48 / ULN2003
+  - [esp32.D27, geared.IN1]
+  - [esp32.D32, geared.IN2]
+  - [esp32.D12, geared.IN3]
+  - [esp32.D15, geared.IN4]
+test:
+  - expect_serial: ">>>"
+  - send: "from machine import Pin, I2C, SPI, PWM; import time, onewire, ds18x20\r"
+  # --- DS18B20 x2 (SEARCH ROM, CONVERT T, READ SCRATCHPAD)
+  - send: "ds = ds18x20.DS18X20(onewire.OneWire(Pin(4))); roms = ds.scan(); print('roms', len(roms), [hex(r[0]) for r in roms])\r"
+  - expect_serial: "roms 2 ['0x28', '0x28']"
+  - send: "ds.convert_temp(); time.sleep_ms(750); print('temps', sorted(ds.read_temp(r) for r in roms))\r"
+  - expect_serial: "temps [-5.25, 22.5]"
+  # --- HX711 load cell
+  - paste: hx711.py
+  - send: "h = HX711(16, 17); print('hx', h.read())\r"
+  - expect_serial: "hx 8400"
+  - set: {id: scale, weight: 100}
+  - send: "h.read(); print('hx100', h.read())\r"
+  - expect_serial: "hx100 50400"
+  # --- MFRC522 with a virtual MIFARE Classic card
+  - paste: mfrc522.py
+  - send: "rdr = MFRC522(SPI(2, baudrate=1000000, sck=Pin(18), mosi=Pin(23), miso=Pin(19)), Pin(5)); print('ver', hex(rdr.version()), 'nocard', rdr.request(0x26)[0])\r"
+  - expect_serial: "ver 0x92 nocard 2"
+  - input: {id: rfid, action: tap, card: mifare, uid: "DE:AD:BE:EF"}
+  - send: "st, bits = rdr.request(0x26); st2, uid = rdr.anticoll(); print('uid', st, bits, st2, ''.join('%02x' % b for b in uid))\r"
+  - expect_serial: "uid 0 16 0 deadbeef22"
+  - send: "print('sel', rdr.select_tag(uid), 'auth', rdr.auth(0x60, 8, [0xFF]*6, uid), 'wr', rdr.write(8, b'hello emulator!!'), 'rd', bytes(rdr.read(8)))\r"
+  - expect_serial: "sel 0 auth 0 wr 0 rd b'hello emulator!!'"
+  # wrong key: the card stays silent, Crypto1 is not switched on and reads fail
+  - send: "rdr.auth(0x60, 12, [1,2,3,4,5,6], uid); print('badkey', rdr._rreg(0x08) & 0x08, rdr.read(12))\r"
+  - expect_serial: "badkey 0 None"
+  # --- INA219 measuring the LED current (calibration 4096 -> 0.1 mA per LSB)
+  - send: "i2c = I2C(0, scl=Pin(22), sda=Pin(21)); i2c.writeto_mem(0x40, 5, b'\\x10\\x00'); c = int.from_bytes(i2c.readfrom_mem(0x40, 4, 2), 'big'); b = int.from_bytes(i2c.readfrom_mem(0x40, 2, 2), 'big') >> 3; print('ina_ma', round(c / 10), 'bus_mv', b * 4)\r"
+  - expect_serial: "ina_ma 14"
+  # --- L298N: PWM 50 % on ENA, forward
+  - send: "Pin(26, Pin.OUT, value=1); Pin(33, Pin.OUT, value=0); pwm = PWM(Pin(25), freq=1000, duty_u16=32768)\r"
+  - expect: {id: motors, "speed[0]": ">0.45", within: 200ms}
+  - expect: {id: motors, "speed[0]": "<0.55"}
+  # --- A4988: 200 steps clockwise = one revolution
+  - send: "import time; st = Pin(13, Pin.OUT, value=0); Pin(14, Pin.OUT, value=1)\r"
+  - send: "for i in range(200): st.value(1); time.sleep_us(50); st.value(0); time.sleep_us(50)\r\r"
+  - expect: {id: nema, position: 200, angle: 360, within: 1s}
+  # --- 28BYJ-48: 64 half steps forward
+  - send: "coils = [Pin(p, Pin.OUT, value=0) for p in (27, 32, 12, 15)]; seq = [1, 3, 2, 6, 4, 12, 8, 9]\r"
+  - send: "for i in range(65):\r  for j, c in enumerate(coils): c.value(seq[i % 8] >> j & 1)\r  time.sleep_ms(2)\r\r"
+  - expect: {id: geared, position: 64, within: 1s}
+  # --- IR remote: record edges with a pin interrupt and decode the NEC frame
+  - send: "ed = []; irp = Pin(34, Pin.IN); irp.irq(lambda p: ed.append(time.ticks_us()), Pin.IRQ_FALLING | Pin.IRQ_RISING)\r"
+  - wait: 100ms
+  - input: {id: ir, key: "5"}
+  - wait: 150ms
+  - send: "d = [time.ticks_diff(ed[i + 1], ed[i]) for i in range(len(ed) - 1)]; v = sum((1 << i) for i in range(32) if d[3 + 2 * i] > 1000); print('nec', len(ed), hex(v))\r"
+  - expect_serial: "nec 68 0xe31cff00"
+  # --- GPS: NMEA sentences at 9600 baud
+  - send: "from machine import UART; gps = UART(2, 9600, rx=35, tx=0); time.sleep_ms(2500); d = gps.read() or b''; print('gps', b'$GPRMC' in d, b'$GPGGA' in d, b',N,' in d)\r"
+  - expect_serial: "gps True True True"
+  # --- HC-05: AT mode, then a phone connects
+  - send: "bt = UART(1, 9600, rx=36, tx=2); bt.write('AT\\\\r\\\\n'); time.sleep_ms(50); print('at', bt.read(), Pin(39).value())\r"
+  - expect_serial: "at b'OK\\\\r\\\\n' 0"
+  - input: {id: bt, action: connect}
+  - send: "bt.write('hello phone\\\\n'); time.sleep_ms(50); print('state', Pin(39).value())\r"
+  - expect_serial: "state 1"
+  - expect: {id: bt, contains: "hello phone"}
+  - input: {id: bt, send: "F"}
+  - send: "time.sleep_ms(30); print('cmd', bt.read())\r"
+  - expect_serial: "cmd b'F\\\\n'"

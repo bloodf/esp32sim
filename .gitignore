@@ -1,0 +1,8 @@
+target/
+firmware-tests/*/.pio/
+*.log
+.esp32sim/
+.DS_Store
+ui-tests/node_modules/
+ui-tests/playwright-report/
+ui-tests/test-results/

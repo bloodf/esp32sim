@@ -1,0 +1,18 @@
+# Bare-metal Rust (esp-hal, no ESP-IDF): the blinky test application shipped with
+# espflash, toggling GPIO15 every 500 ms.  hello.elf (same folder, with DWARF debug
+# info) prints "Hello world!" / "Loop..." — open it with `esp32sim run hello.elf`.
+name: rust-esp-hal
+board: esp32-devkit-v1
+firmware: blinky.elf
+speed: 1.0
+components:
+  - {id: led, type: led, color: green, x: 520, y: 380}
+  - {id: r1, type: resistor, value: 220, x: 430, y: 380}
+connections:
+  - [esp32.D15, r1.1]
+  - [r1.2, led.A]
+  - [led.C, GND]
+test:
+  - expect: {id: led, brightness: ">0.3", within: 1500ms}
+  - expect: {id: led, brightness: "<0.05", within: 1500ms}
+  - expect: {id: led, brightness: ">0.3", within: 1500ms}

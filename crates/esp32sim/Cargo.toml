@@ -1,0 +1,31 @@
+[package]
+name = "esp32sim"
+version.workspace = true
+edition.workspace = true
+description = "ESP32 board emulator with circuit simulation, console, GUI and IDE"
+
+[[bin]]
+name = "esp32sim"
+path = "src/main.rs"
+
+[dependencies]
+esp32-soc = { path = "../esp32-soc" }
+xtensa-core = { path = "../xtensa-core" }
+esp32sim-devices = { path = "../devices" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+axum = { version = "0.7", features = ["ws"] }
+tower-http = { version = "0.6", features = ["cors"] }
+rust-embed = "8"
+mime_guess = "2"
+base64 = "0.22"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+futures = "0.3"
+addr2line = "0.24"
+object = { version = "0.36", default-features = false, features = ["read", "elf", "std", "compression"] }
+
+[dev-dependencies]
+tokio-tungstenite = "0.24"

@@ -1,0 +1,15 @@
+{
+  "name": "esp32sim-ui-tests",
+  "private": true,
+  "type": "module",
+  "description": "Unit tests for the web GUI modules (node --test + jsdom) and end-to-end GUI tests (Playwright)",
+  "scripts": {
+    "test:unit": "node --test \"unit/*.test.mjs\"",
+    "test:e2e": "playwright test",
+    "test": "npm run test:unit && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "jsdom": "^25.0.1"
+  }
+}

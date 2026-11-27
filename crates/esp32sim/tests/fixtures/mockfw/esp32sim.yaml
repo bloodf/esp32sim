@@ -1,0 +1,45 @@
+# Mock firmware project used by the end-to-end tests (see README.md).
+name: mockfw
+firmware: mockfw.bin
+components:
+  - {id: btn, type: pushbutton, x: 460, y: 140}
+  - {id: pull, type: resistor, value: 10k, x: 460, y: 60}
+  - {id: led, type: led, color: green, x: 620, y: 140}
+  - {id: r1, type: resistor, value: 220, x: 560, y: 140}
+  - {id: beat, type: led, color: red, x: 620, y: 260}
+  - {id: r2, type: resistor, value: 220, x: 560, y: 260}
+connections:
+  - [esp32.D4, btn.1, pull.1]
+  - [pull.2, 3V3]
+  - [btn.2, GND]
+  - [esp32.D5, r1.1]
+  - [r1.2, led.A]
+  - [led.C, GND]
+  - [esp32.D18, r2.1]
+  - [r2.2, beat.A]
+  - [beat.C, GND]
+test:
+  - expect_serial: "mockfw ready"
+  - send: "ping\n"
+  - expect_serial: "pong"
+  - send: "led on\n"
+  - expect_serial: "ok"
+  - expect: {id: led, brightness: ">0.2", within: 50ms}
+  - press: btn
+  - expect: {id: board_led, brightness: ">0.05", within: 50ms}
+  - release: btn
+  - wait: 20ms
+  - press: btn
+  - wait: 20ms
+  - release: btn
+  - wait: 20ms
+  - send: "count\n"
+  - expect_serial: "count=2"
+  - send: "hello world\r\n"
+  - expect_serial: "echo:hello world"
+  - send: "led off\n"
+  - expect: {id: led, brightness: "<0.01", within: 50ms}
+  - expect: {id: beat, brightness: ">0.2", within: 1200ms}
+  - send: "reboot\n"
+  - expect_serial: "rebooting"
+  - expect_serial: "mockfw ready"

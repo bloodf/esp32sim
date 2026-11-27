@@ -1,0 +1,4748 @@
+{
+  "parts": [
+    {
+      "type": "led",
+      "name": "LED",
+      "category": "Output",
+      "props": {
+        "color": "red"
+      },
+      "pins": [
+        {
+          "name": "A",
+          "kind": "passive"
+        },
+        {
+          "name": "C",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "color": "red",
+        "brightness": 0.0,
+        "current_ma": 0.0,
+        "burned": false
+      }
+    },
+    {
+      "type": "rgb-led",
+      "name": "RGB LED",
+      "category": "Output",
+      "props": {
+        "common": "cathode"
+      },
+      "pins": [
+        {
+          "name": "R",
+          "kind": "passive"
+        },
+        {
+          "name": "COM",
+          "kind": "passive"
+        },
+        {
+          "name": "G",
+          "kind": "passive"
+        },
+        {
+          "name": "B",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "r": 0.0,
+        "g": 0.0,
+        "b": 0.0
+      }
+    },
+    {
+      "type": "resistor",
+      "name": "Resistor",
+      "category": "Passive",
+      "props": {
+        "value": "220"
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "ohms": 220.0
+      }
+    },
+    {
+      "type": "potentiometer",
+      "name": "Potentiometer",
+      "category": "Input",
+      "props": {
+        "value": "10k",
+        "position": 0.5
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "W",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "position": 0.5,
+        "ohms": 10000.0
+      }
+    },
+    {
+      "type": "capacitor",
+      "name": "Capacitor",
+      "category": "Passive",
+      "props": {
+        "value": "100n"
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "farads": 1.0000000000000001e-7,
+        "volts": 0.0
+      }
+    },
+    {
+      "type": "pushbutton",
+      "name": "Push button",
+      "category": "Input",
+      "props": {
+        "bounce": 0
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "pressed": false,
+        "presses": 0
+      }
+    },
+    {
+      "type": "switch",
+      "name": "Switch (SPST)",
+      "category": "Input",
+      "props": {
+        "on": false
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "on": false
+      }
+    },
+    {
+      "type": "slide-switch",
+      "name": "Slide switch (SPDT)",
+      "category": "Input",
+      "props": {
+        "on": false
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "C",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "on": false
+      }
+    },
+    {
+      "type": "keypad-4x4",
+      "name": "Keypad 4x4",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "R1",
+          "kind": "passive"
+        },
+        {
+          "name": "R2",
+          "kind": "passive"
+        },
+        {
+          "name": "R3",
+          "kind": "passive"
+        },
+        {
+          "name": "R4",
+          "kind": "passive"
+        },
+        {
+          "name": "C1",
+          "kind": "passive"
+        },
+        {
+          "name": "C2",
+          "kind": "passive"
+        },
+        {
+          "name": "C3",
+          "kind": "passive"
+        },
+        {
+          "name": "C4",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "pressed": [],
+        "layout": [
+          "123A",
+          "456B",
+          "789C",
+          "*0#D"
+        ],
+        "history": ""
+      }
+    },
+    {
+      "type": "keypad-4x3",
+      "name": "Keypad 4x3",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "R1",
+          "kind": "passive"
+        },
+        {
+          "name": "R2",
+          "kind": "passive"
+        },
+        {
+          "name": "R3",
+          "kind": "passive"
+        },
+        {
+          "name": "R4",
+          "kind": "passive"
+        },
+        {
+          "name": "C1",
+          "kind": "passive"
+        },
+        {
+          "name": "C2",
+          "kind": "passive"
+        },
+        {
+          "name": "C3",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "pressed": [],
+        "layout": [
+          "123",
+          "456",
+          "789",
+          "*0#"
+        ],
+        "history": ""
+      }
+    },
+    {
+      "type": "joystick",
+      "name": "Analog joystick",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "VERT",
+          "kind": "analog"
+        },
+        {
+          "name": "HORZ",
+          "kind": "analog"
+        },
+        {
+          "name": "SEL",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "x": 0.5,
+        "y": 0.5,
+        "pressed": false
+      }
+    },
+    {
+      "type": "rotary-encoder",
+      "name": "Rotary encoder (KY-040)",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "CLK",
+          "kind": "output"
+        },
+        {
+          "name": "DT",
+          "kind": "output"
+        },
+        {
+          "name": "SW",
+          "kind": "output"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "position": 0,
+        "pressed": false
+      }
+    },
+    {
+      "type": "ldr",
+      "name": "Photoresistor (LDR)",
+      "category": "Sensor",
+      "props": {
+        "lux": 300
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "lux": 300.0,
+        "ohms": 924.7303715573938
+      }
+    },
+    {
+      "type": "ntc",
+      "name": "NTC thermistor",
+      "category": "Sensor",
+      "props": {
+        "temperature": 25
+      },
+      "pins": [
+        {
+          "name": "1",
+          "kind": "passive"
+        },
+        {
+          "name": "2",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "temperature": 25.0,
+        "ohms": 10000.0
+      }
+    },
+    {
+      "type": "pir",
+      "name": "PIR motion sensor",
+      "category": "Sensor",
+      "props": {
+        "hold_ms": 3000
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "ir-obstacle",
+      "name": "IR obstacle sensor",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "touch-pad",
+      "name": "Touch pad (electrode)",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "PAD",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "touched": false
+      }
+    },
+    {
+      "type": "touch-sensor",
+      "name": "Touch sensor (TTP223)",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "hall-sensor",
+      "name": "Hall sensor (KY-003)",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "vibration-sensor",
+      "name": "Vibration sensor (SW-420)",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "tilt-sensor",
+      "name": "Tilt switch (SW-520D)",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "active": false
+      }
+    },
+    {
+      "type": "soil-moisture",
+      "name": "Soil moisture sensor",
+      "category": "Sensor",
+      "props": {
+        "moisture": 0.3,
+        "threshold": 0.5
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DO",
+          "kind": "output"
+        },
+        {
+          "name": "AO",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.3,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "moisture"
+      }
+    },
+    {
+      "type": "mq2",
+      "name": "MQ-2 gas sensor",
+      "category": "Sensor",
+      "props": {
+        "gas": 0.1,
+        "threshold": 0.5
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DO",
+          "kind": "output"
+        },
+        {
+          "name": "AO",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.1,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "gas"
+      }
+    },
+    {
+      "type": "sound-sensor",
+      "name": "Sound sensor (KY-038)",
+      "category": "Sensor",
+      "props": {
+        "sound": 0.1,
+        "threshold": 0.5
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DO",
+          "kind": "output"
+        },
+        {
+          "name": "AO",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.1,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "sound"
+      }
+    },
+    {
+      "type": "flame-sensor",
+      "name": "Flame sensor",
+      "category": "Sensor",
+      "props": {
+        "flame": 0,
+        "threshold": 0.5
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DO",
+          "kind": "output"
+        },
+        {
+          "name": "AO",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.0,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "flame"
+      }
+    },
+    {
+      "type": "rain-sensor",
+      "name": "Rain sensor",
+      "category": "Sensor",
+      "props": {
+        "rain": 0,
+        "threshold": 0.5
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DO",
+          "kind": "output"
+        },
+        {
+          "name": "AO",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.0,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "rain"
+      }
+    },
+    {
+      "type": "water-level",
+      "name": "Water level sensor",
+      "category": "Sensor",
+      "props": {
+        "level": 0.2
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "S",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "level": 0.2,
+        "threshold": 0.5,
+        "triggered": false,
+        "label": "level"
+      }
+    },
+    {
+      "type": "signal",
+      "name": "Signal source",
+      "category": "Input",
+      "props": {
+        "volts": 0
+      },
+      "pins": [
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "volts": 0.0
+      }
+    },
+    {
+      "type": "buzzer",
+      "name": "Passive buzzer",
+      "category": "Output",
+      "props": {},
+      "pins": [
+        {
+          "name": "+",
+          "kind": "input"
+        },
+        {
+          "name": "-",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "on": false,
+        "freq": 0.0,
+        "active": false
+      }
+    },
+    {
+      "type": "buzzer-active",
+      "name": "Active buzzer",
+      "category": "Output",
+      "props": {},
+      "pins": [
+        {
+          "name": "+",
+          "kind": "input"
+        },
+        {
+          "name": "-",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "on": false,
+        "freq": 0.0,
+        "active": true
+      }
+    },
+    {
+      "type": "relay",
+      "name": "Relay module",
+      "category": "Output",
+      "props": {
+        "channels": 1,
+        "active_low": false
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "IN",
+          "kind": "input"
+        },
+        {
+          "name": "COM",
+          "kind": "passive"
+        },
+        {
+          "name": "NO",
+          "kind": "passive"
+        },
+        {
+          "name": "NC",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "on": [
+          false
+        ],
+        "active_low": false
+      }
+    },
+    {
+      "type": "servo",
+      "name": "Servo (SG90)",
+      "category": "Output",
+      "props": {},
+      "pins": [
+        {
+          "name": "PWM",
+          "kind": "input"
+        },
+        {
+          "name": "V+",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "angle": 90.0,
+        "pulse_us": 0.0
+      }
+    },
+    {
+      "type": "ws2812",
+      "name": "WS2812 / NeoPixel",
+      "category": "Output",
+      "props": {
+        "count": 8,
+        "layout": "strip"
+      },
+      "pins": [
+        {
+          "name": "DIN",
+          "kind": "input"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DOUT",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "count": 8,
+        "layout": "strip",
+        "width": 3,
+        "pixels": [
+          "000000",
+          "000000",
+          "000000",
+          "000000",
+          "000000",
+          "000000",
+          "000000",
+          "000000"
+        ],
+        "frames": 0
+      }
+    },
+    {
+      "type": "7segment",
+      "name": "7-segment display",
+      "category": "Display",
+      "props": {
+        "digits": 1,
+        "common": "cathode"
+      },
+      "pins": [
+        {
+          "name": "A",
+          "kind": "passive"
+        },
+        {
+          "name": "B",
+          "kind": "passive"
+        },
+        {
+          "name": "C",
+          "kind": "passive"
+        },
+        {
+          "name": "D",
+          "kind": "passive"
+        },
+        {
+          "name": "E",
+          "kind": "passive"
+        },
+        {
+          "name": "F",
+          "kind": "passive"
+        },
+        {
+          "name": "G",
+          "kind": "passive"
+        },
+        {
+          "name": "DP",
+          "kind": "passive"
+        },
+        {
+          "name": "COM",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "digits": 1,
+        "segments": "00"
+      }
+    },
+    {
+      "type": "tm1637",
+      "name": "TM1637 4-digit display",
+      "category": "Display",
+      "props": {
+        "digits": 4
+      },
+      "pins": [
+        {
+          "name": "CLK",
+          "kind": "input"
+        },
+        {
+          "name": "DIO",
+          "kind": "io"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "digits": 4,
+        "segments": "00000000",
+        "brightness": 0,
+        "on": false
+      }
+    },
+    {
+      "type": "max7219",
+      "name": "MAX7219 LED matrix",
+      "category": "Display",
+      "props": {
+        "chips": 1
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DIN",
+          "kind": "input"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        },
+        {
+          "name": "CLK",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "chips": [
+          {
+            "rows": "0000000000000000",
+            "decode": 0,
+            "intensity": 0,
+            "scan_limit": 0,
+            "on": false,
+            "test": false
+          }
+        ],
+        "version": 0
+      }
+    },
+    {
+      "type": "ssd1306",
+      "name": "OLED SSD1306 (I2C)",
+      "category": "Display",
+      "props": {
+        "address": "0x3C",
+        "width": 128,
+        "height": 64
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "width": 128,
+        "height": 64,
+        "on": false,
+        "contrast": 127,
+        "bitmap": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0
+      }
+    },
+    {
+      "type": "sh1106",
+      "name": "OLED SH1106 (I2C)",
+      "category": "Display",
+      "props": {
+        "address": "0x3C"
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "width": 128,
+        "height": 64,
+        "on": false,
+        "contrast": 127,
+        "bitmap": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0
+      }
+    },
+    {
+      "type": "ssd1306-spi",
+      "name": "OLED SSD1306 (SPI)",
+      "category": "Display",
+      "props": {
+        "width": 128,
+        "height": 64
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "RES",
+          "kind": "input"
+        },
+        {
+          "name": "DC",
+          "kind": "input"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "width": 128,
+        "height": 64,
+        "on": false,
+        "contrast": 127,
+        "bitmap": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "version": 0
+      }
+    },
+    {
+      "type": "lcd1602-i2c",
+      "name": "LCD 16x2 (I2C)",
+      "category": "Display",
+      "props": {
+        "address": "0x27"
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "cols": 16,
+        "rows": 2,
+        "on": false,
+        "backlight": false,
+        "text": [
+          "                ",
+          "                "
+        ],
+        "codes": [
+          "20202020202020202020202020202020",
+          "20202020202020202020202020202020"
+        ],
+        "cgram": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "cursor": {
+          "visible": false,
+          "blink": false,
+          "row": 0,
+          "col": 0
+        },
+        "version": 0
+      }
+    },
+    {
+      "type": "lcd2004-i2c",
+      "name": "LCD 20x4 (I2C)",
+      "category": "Display",
+      "props": {
+        "address": "0x27"
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "cols": 20,
+        "rows": 4,
+        "on": false,
+        "backlight": false,
+        "text": [
+          "                    ",
+          "                    ",
+          "                    ",
+          "                    "
+        ],
+        "codes": [
+          "2020202020202020202020202020202020202020",
+          "2020202020202020202020202020202020202020",
+          "2020202020202020202020202020202020202020",
+          "2020202020202020202020202020202020202020"
+        ],
+        "cgram": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "cursor": {
+          "visible": false,
+          "blink": false,
+          "row": 0,
+          "col": 0
+        },
+        "version": 0
+      }
+    },
+    {
+      "type": "lcd-parallel",
+      "name": "LCD 16x2 (parallel)",
+      "category": "Display",
+      "props": {
+        "cols": 16,
+        "rows": 2
+      },
+      "pins": [
+        {
+          "name": "VSS",
+          "kind": "ground"
+        },
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "V0",
+          "kind": "analog"
+        },
+        {
+          "name": "RS",
+          "kind": "input"
+        },
+        {
+          "name": "RW",
+          "kind": "input"
+        },
+        {
+          "name": "E",
+          "kind": "input"
+        },
+        {
+          "name": "D0",
+          "kind": "input"
+        },
+        {
+          "name": "D1",
+          "kind": "input"
+        },
+        {
+          "name": "D2",
+          "kind": "input"
+        },
+        {
+          "name": "D3",
+          "kind": "input"
+        },
+        {
+          "name": "D4",
+          "kind": "input"
+        },
+        {
+          "name": "D5",
+          "kind": "input"
+        },
+        {
+          "name": "D6",
+          "kind": "input"
+        },
+        {
+          "name": "D7",
+          "kind": "input"
+        },
+        {
+          "name": "A",
+          "kind": "power"
+        },
+        {
+          "name": "K",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "cols": 16,
+        "rows": 2,
+        "on": false,
+        "backlight": true,
+        "text": [
+          "                ",
+          "                "
+        ],
+        "codes": [
+          "20202020202020202020202020202020",
+          "20202020202020202020202020202020"
+        ],
+        "cgram": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "cursor": {
+          "visible": false,
+          "blink": false,
+          "row": 0,
+          "col": 0
+        },
+        "version": 0
+      }
+    },
+    {
+      "type": "ili9341",
+      "name": "TFT ILI9341 (SPI)",
+      "category": "Display",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        },
+        {
+          "name": "RESET",
+          "kind": "input"
+        },
+        {
+          "name": "DC",
+          "kind": "input"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "LED",
+          "kind": "power"
+        },
+        {
+          "name": "MISO",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "width": 240,
+        "height": 320,
+        "on": false,
+        "version": 0,
+        "framebuffer": true,
+        "lit": 0
+      }
+    },
+    {
+      "type": "st7735",
+      "name": "TFT ST7735 (SPI)",
+      "category": "Display",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        },
+        {
+          "name": "RESET",
+          "kind": "input"
+        },
+        {
+          "name": "DC",
+          "kind": "input"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "LED",
+          "kind": "power"
+        },
+        {
+          "name": "MISO",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "width": 128,
+        "height": 160,
+        "on": false,
+        "version": 0,
+        "framebuffer": true,
+        "lit": 0
+      }
+    },
+    {
+      "type": "st7789",
+      "name": "TFT ST7789 (SPI)",
+      "category": "Display",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        },
+        {
+          "name": "RESET",
+          "kind": "input"
+        },
+        {
+          "name": "DC",
+          "kind": "input"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "LED",
+          "kind": "power"
+        },
+        {
+          "name": "MISO",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "width": 240,
+        "height": 240,
+        "on": false,
+        "version": 0,
+        "framebuffer": true,
+        "lit": 0
+      }
+    },
+    {
+      "type": "pcf8574",
+      "name": "PCF8574 I/O expander",
+      "category": "I2C",
+      "props": {
+        "address": "0x20"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "INT",
+          "kind": "output"
+        },
+        {
+          "name": "P0",
+          "kind": "io"
+        },
+        {
+          "name": "P1",
+          "kind": "io"
+        },
+        {
+          "name": "P2",
+          "kind": "io"
+        },
+        {
+          "name": "P3",
+          "kind": "io"
+        },
+        {
+          "name": "P4",
+          "kind": "io"
+        },
+        {
+          "name": "P5",
+          "kind": "io"
+        },
+        {
+          "name": "P6",
+          "kind": "io"
+        },
+        {
+          "name": "P7",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "address": 32,
+        "output_latch": 255,
+        "inputs": 255,
+        "bits": 8
+      }
+    },
+    {
+      "type": "pcf8574a",
+      "name": "PCF8574A I/O expander",
+      "category": "I2C",
+      "props": {
+        "address": "0x38"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "INT",
+          "kind": "output"
+        },
+        {
+          "name": "P0",
+          "kind": "io"
+        },
+        {
+          "name": "P1",
+          "kind": "io"
+        },
+        {
+          "name": "P2",
+          "kind": "io"
+        },
+        {
+          "name": "P3",
+          "kind": "io"
+        },
+        {
+          "name": "P4",
+          "kind": "io"
+        },
+        {
+          "name": "P5",
+          "kind": "io"
+        },
+        {
+          "name": "P6",
+          "kind": "io"
+        },
+        {
+          "name": "P7",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "address": 56,
+        "output_latch": 255,
+        "inputs": 255,
+        "bits": 8
+      }
+    },
+    {
+      "type": "pcf8575",
+      "name": "PCF8575 I/O expander",
+      "category": "I2C",
+      "props": {
+        "address": "0x20"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "INT",
+          "kind": "output"
+        },
+        {
+          "name": "P00",
+          "kind": "io"
+        },
+        {
+          "name": "P01",
+          "kind": "io"
+        },
+        {
+          "name": "P02",
+          "kind": "io"
+        },
+        {
+          "name": "P03",
+          "kind": "io"
+        },
+        {
+          "name": "P04",
+          "kind": "io"
+        },
+        {
+          "name": "P05",
+          "kind": "io"
+        },
+        {
+          "name": "P06",
+          "kind": "io"
+        },
+        {
+          "name": "P07",
+          "kind": "io"
+        },
+        {
+          "name": "P10",
+          "kind": "io"
+        },
+        {
+          "name": "P11",
+          "kind": "io"
+        },
+        {
+          "name": "P12",
+          "kind": "io"
+        },
+        {
+          "name": "P13",
+          "kind": "io"
+        },
+        {
+          "name": "P14",
+          "kind": "io"
+        },
+        {
+          "name": "P15",
+          "kind": "io"
+        },
+        {
+          "name": "P16",
+          "kind": "io"
+        },
+        {
+          "name": "P17",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "address": 32,
+        "output_latch": 65535,
+        "inputs": 65535,
+        "bits": 16
+      }
+    },
+    {
+      "type": "mcp23017",
+      "name": "MCP23017 I/O expander",
+      "category": "I2C",
+      "props": {
+        "address": "0x20"
+      },
+      "pins": [
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "VSS",
+          "kind": "ground"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "INTA",
+          "kind": "output"
+        },
+        {
+          "name": "INTB",
+          "kind": "output"
+        },
+        {
+          "name": "RESET",
+          "kind": "input"
+        },
+        {
+          "name": "GPA0",
+          "kind": "io"
+        },
+        {
+          "name": "GPA1",
+          "kind": "io"
+        },
+        {
+          "name": "GPA2",
+          "kind": "io"
+        },
+        {
+          "name": "GPA3",
+          "kind": "io"
+        },
+        {
+          "name": "GPA4",
+          "kind": "io"
+        },
+        {
+          "name": "GPA5",
+          "kind": "io"
+        },
+        {
+          "name": "GPA6",
+          "kind": "io"
+        },
+        {
+          "name": "GPA7",
+          "kind": "io"
+        },
+        {
+          "name": "GPB0",
+          "kind": "io"
+        },
+        {
+          "name": "GPB1",
+          "kind": "io"
+        },
+        {
+          "name": "GPB2",
+          "kind": "io"
+        },
+        {
+          "name": "GPB3",
+          "kind": "io"
+        },
+        {
+          "name": "GPB4",
+          "kind": "io"
+        },
+        {
+          "name": "GPB5",
+          "kind": "io"
+        },
+        {
+          "name": "GPB6",
+          "kind": "io"
+        },
+        {
+          "name": "GPB7",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "address": 32,
+        "iodir": 65535,
+        "olat": 0,
+        "inputs": 65535
+      }
+    },
+    {
+      "type": "i2c-relay",
+      "name": "I2C relay board",
+      "category": "I2C",
+      "props": {
+        "address": "0x20",
+        "channels": 4,
+        "active_low": true
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "COM1",
+          "kind": "passive"
+        },
+        {
+          "name": "NO1",
+          "kind": "passive"
+        },
+        {
+          "name": "NC1",
+          "kind": "passive"
+        },
+        {
+          "name": "COM2",
+          "kind": "passive"
+        },
+        {
+          "name": "NO2",
+          "kind": "passive"
+        },
+        {
+          "name": "NC2",
+          "kind": "passive"
+        },
+        {
+          "name": "COM3",
+          "kind": "passive"
+        },
+        {
+          "name": "NO3",
+          "kind": "passive"
+        },
+        {
+          "name": "NC3",
+          "kind": "passive"
+        },
+        {
+          "name": "COM4",
+          "kind": "passive"
+        },
+        {
+          "name": "NO4",
+          "kind": "passive"
+        },
+        {
+          "name": "NC4",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "address": 32,
+        "on": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "type": "ads1115",
+      "name": "ADS1115 16-bit ADC",
+      "category": "I2C",
+      "props": {
+        "address": "0x48"
+      },
+      "pins": [
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "ADDR",
+          "kind": "input"
+        },
+        {
+          "name": "ALRT",
+          "kind": "output"
+        },
+        {
+          "name": "A0",
+          "kind": "analog"
+        },
+        {
+          "name": "A1",
+          "kind": "analog"
+        },
+        {
+          "name": "A2",
+          "kind": "analog"
+        },
+        {
+          "name": "A3",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "address": 72,
+        "inputs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "last": 0
+      }
+    },
+    {
+      "type": "ads1015",
+      "name": "ADS1015 12-bit ADC",
+      "category": "I2C",
+      "props": {
+        "address": "0x48"
+      },
+      "pins": [
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "ADDR",
+          "kind": "input"
+        },
+        {
+          "name": "ALRT",
+          "kind": "output"
+        },
+        {
+          "name": "A0",
+          "kind": "analog"
+        },
+        {
+          "name": "A1",
+          "kind": "analog"
+        },
+        {
+          "name": "A2",
+          "kind": "analog"
+        },
+        {
+          "name": "A3",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "address": 72,
+        "inputs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "last": 0
+      }
+    },
+    {
+      "type": "mcp3421",
+      "name": "MCP3421 18-bit ADC",
+      "category": "I2C",
+      "props": {
+        "address": "0x68"
+      },
+      "pins": [
+        {
+          "name": "VIN+",
+          "kind": "analog"
+        },
+        {
+          "name": "VSS",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "VIN-",
+          "kind": "analog"
+        }
+      ],
+      "state": {
+        "address": 104,
+        "vin": 0.0,
+        "config": 144
+      }
+    },
+    {
+      "type": "at24c",
+      "name": "AT24C EEPROM",
+      "category": "I2C",
+      "props": {
+        "address": "0x50",
+        "kbit": 32
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "WP",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "address": 80,
+        "size": 4096,
+        "head": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      }
+    },
+    {
+      "type": "mpu6050",
+      "name": "MPU6050 (GY-521)",
+      "category": "Sensor",
+      "props": {
+        "address": "0x68"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "XDA",
+          "kind": "io"
+        },
+        {
+          "name": "XCL",
+          "kind": "io"
+        },
+        {
+          "name": "AD0",
+          "kind": "io"
+        },
+        {
+          "name": "INT",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MPU6050"
+        ]
+      }
+    },
+    {
+      "type": "mpu9250",
+      "name": "MPU9250 9DOF",
+      "category": "Sensor",
+      "props": {
+        "address": "0x68"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "AD0",
+          "kind": "io"
+        },
+        {
+          "name": "INT",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MPU9250",
+          "AK8963"
+        ]
+      }
+    },
+    {
+      "type": "adxl345",
+      "name": "ADXL345 accelerometer",
+      "category": "Sensor",
+      "props": {
+        "address": "0x53"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "CS",
+          "kind": "io"
+        },
+        {
+          "name": "SDO",
+          "kind": "io"
+        },
+        {
+          "name": "INT1",
+          "kind": "io"
+        },
+        {
+          "name": "INT2",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "ADXL345"
+        ]
+      }
+    },
+    {
+      "type": "hmc5883l",
+      "name": "HMC5883L compass",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "DRDY",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "HMC5883L"
+        ]
+      }
+    },
+    {
+      "type": "qmc5883l",
+      "name": "QMC5883L compass",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "DRDY",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "QMC5883L"
+        ]
+      }
+    },
+    {
+      "type": "gy-86",
+      "name": "GY-86 10DOF flight controller",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "INT",
+          "kind": "io"
+        },
+        {
+          "name": "DRDY",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MPU6050",
+          "HMC5883L",
+          "MS5611"
+        ]
+      }
+    },
+    {
+      "type": "gy-87",
+      "name": "GY-87 10DOF",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "INT",
+          "kind": "io"
+        },
+        {
+          "name": "DRDY",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MPU6050",
+          "HMC5883L",
+          "BMP180"
+        ]
+      }
+    },
+    {
+      "type": "gy-91",
+      "name": "GY-91 10DOF",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "INT",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MPU9250",
+          "AK8963",
+          "BMP280"
+        ]
+      }
+    },
+    {
+      "type": "ms5611",
+      "name": "MS5611 barometer",
+      "category": "Sensor",
+      "props": {
+        "address": "0x77"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "CSB",
+          "kind": "io"
+        },
+        {
+          "name": "SDO",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "MS5611"
+        ]
+      }
+    },
+    {
+      "type": "bmp280",
+      "name": "BMP280 barometer",
+      "category": "Sensor",
+      "props": {
+        "address": "0x76"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "CSB",
+          "kind": "io"
+        },
+        {
+          "name": "SDO",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "BMP280"
+        ]
+      }
+    },
+    {
+      "type": "bme280",
+      "name": "BME280",
+      "category": "Sensor",
+      "props": {
+        "address": "0x76"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "CSB",
+          "kind": "io"
+        },
+        {
+          "name": "SDO",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "BME280"
+        ]
+      }
+    },
+    {
+      "type": "bmp180",
+      "name": "BMP180 barometer",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "BMP180"
+        ]
+      }
+    },
+    {
+      "type": "dht11",
+      "name": "DHT11",
+      "category": "Sensor",
+      "props": {
+        "temperature": 24,
+        "humidity": 45
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "NC",
+          "kind": "passive"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "temperature": 24.0,
+        "humidity": 45.0,
+        "reads": 0
+      }
+    },
+    {
+      "type": "dht22",
+      "name": "DHT22 / AM2302",
+      "category": "Sensor",
+      "props": {
+        "temperature": 24,
+        "humidity": 45
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "NC",
+          "kind": "passive"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "temperature": 24.0,
+        "humidity": 45.0,
+        "reads": 0
+      }
+    },
+    {
+      "type": "ir-receiver",
+      "name": "IR receiver + remote",
+      "category": "Input",
+      "props": {},
+      "pins": [
+        {
+          "name": "OUT",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        }
+      ],
+      "state": {
+        "last_key": null,
+        "frames": 0,
+        "receiving": false,
+        "keys": [
+          "CH-",
+          "CH",
+          "CH+",
+          "PREV",
+          "NEXT",
+          "PLAY",
+          "VOL-",
+          "VOL+",
+          "EQ",
+          "0",
+          "100+",
+          "200+",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      }
+    },
+    {
+      "type": "hc-sr04",
+      "name": "HC-SR04 ultrasonic",
+      "category": "Sensor",
+      "props": {
+        "distance": 100
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "TRIG",
+          "kind": "input"
+        },
+        {
+          "name": "ECHO",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "distance": 100.0,
+        "pings": 0
+      }
+    },
+    {
+      "type": "bh1750",
+      "name": "BH1750 light sensor",
+      "category": "Sensor",
+      "props": {
+        "address": "0x23"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "ADDR",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "BH1750"
+        ]
+      }
+    },
+    {
+      "type": "sht31",
+      "name": "SHT31",
+      "category": "Sensor",
+      "props": {
+        "address": "0x44"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "ADDR",
+          "kind": "io"
+        },
+        {
+          "name": "ALERT",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "SHT31"
+        ]
+      }
+    },
+    {
+      "type": "aht20",
+      "name": "AHT20",
+      "category": "Sensor",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "AHT20"
+        ]
+      }
+    },
+    {
+      "type": "ds3231",
+      "name": "DS3231 RTC",
+      "category": "Time",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SQW",
+          "kind": "io"
+        },
+        {
+          "name": "32K",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "DS3231"
+        ]
+      }
+    },
+    {
+      "type": "ds1307",
+      "name": "DS1307 RTC",
+      "category": "Time",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SQW",
+          "kind": "io"
+        }
+      ],
+      "state": {
+        "accel": [
+          -0.0,
+          0.0,
+          1.0
+        ],
+        "gyro": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mag": [
+          40.0,
+          -0.0,
+          -30.0
+        ],
+        "temperature": 24.0,
+        "pressure": 1013.25,
+        "altitude": 0.0,
+        "humidity": 45.0,
+        "lux": 300.0,
+        "roll": 0.0,
+        "pitch": 0.0,
+        "yaw": 0.0,
+        "chips": [
+          "DS1307"
+        ]
+      }
+    },
+    {
+      "type": "pn532",
+      "name": "PN532 NFC reader",
+      "category": "RFID/NFC",
+      "props": {
+        "address": "0x24"
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "IRQ",
+          "kind": "output"
+        },
+        {
+          "name": "RSTO",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "card": null,
+        "waiting_for_card": false,
+        "log": []
+      }
+    },
+    {
+      "type": "gps-neo6m",
+      "name": "GPS module (NEO-6M)",
+      "category": "Sensor",
+      "props": {
+        "lat": 40.4168,
+        "lon": -3.7038,
+        "alt": 650
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "RX",
+          "kind": "input"
+        },
+        {
+          "name": "TX",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "PPS",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "lat": 40.4168,
+        "lon": -3.7038,
+        "alt": 650.0,
+        "speed": 0.0,
+        "course": 0.0,
+        "sats": 8,
+        "fix": true,
+        "sentences": 0
+      }
+    },
+    {
+      "type": "hc-05",
+      "name": "HC-05 Bluetooth serial",
+      "category": "Communication",
+      "props": {
+        "name": "HC-05"
+      },
+      "pins": [
+        {
+          "name": "STATE",
+          "kind": "output"
+        },
+        {
+          "name": "RXD",
+          "kind": "input"
+        },
+        {
+          "name": "TXD",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "EN",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "connected": false,
+        "name": "HC-05",
+        "phone_rx": ""
+      }
+    },
+    {
+      "type": "sd-card",
+      "name": "microSD card module",
+      "category": "Storage",
+      "props": {
+        "size_mb": 64
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "MISO",
+          "kind": "output"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "CS",
+          "kind": "input"
+        }
+      ],
+      "state": {
+        "inserted": true,
+        "size_mb": 64,
+        "reads": 0,
+        "writes": 0,
+        "image": null,
+        "error": null,
+        "files": []
+      }
+    },
+    {
+      "type": "mfrc522",
+      "name": "MFRC522 RFID reader (RC522)",
+      "category": "RFID/NFC",
+      "props": {},
+      "pins": [
+        {
+          "name": "SDA",
+          "kind": "input"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "MOSI",
+          "kind": "input"
+        },
+        {
+          "name": "MISO",
+          "kind": "output"
+        },
+        {
+          "name": "IRQ",
+          "kind": "output"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "RST",
+          "kind": "input"
+        },
+        {
+          "name": "3.3V",
+          "kind": "power"
+        }
+      ],
+      "state": {
+        "card": null,
+        "antenna": false,
+        "selected": false,
+        "log": []
+      }
+    },
+    {
+      "type": "ds18b20",
+      "name": "DS18B20 temperature",
+      "category": "Sensor",
+      "props": {
+        "temperature": 22.5
+      },
+      "pins": [
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DQ",
+          "kind": "io"
+        },
+        {
+          "name": "VDD",
+          "kind": "power"
+        }
+      ],
+      "state": {
+        "temperature": 22.5,
+        "rom": "2800001e5a000022",
+        "resolution": 12,
+        "conversions": 0
+      }
+    },
+    {
+      "type": "hx711",
+      "name": "HX711 + load cell",
+      "category": "Sensor",
+      "props": {
+        "weight": 0,
+        "scale": 420,
+        "offset": 8400
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DT",
+          "kind": "output"
+        },
+        {
+          "name": "SCK",
+          "kind": "input"
+        },
+        {
+          "name": "E+",
+          "kind": "passive"
+        },
+        {
+          "name": "E-",
+          "kind": "passive"
+        },
+        {
+          "name": "A-",
+          "kind": "passive"
+        },
+        {
+          "name": "A+",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "weight": 0.0,
+        "raw": 8400.0,
+        "readings": 0
+      }
+    },
+    {
+      "type": "ina219",
+      "name": "INA219 current sensor",
+      "category": "I2C",
+      "props": {
+        "address": "0x40"
+      },
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "SCL",
+          "kind": "input"
+        },
+        {
+          "name": "SDA",
+          "kind": "io"
+        },
+        {
+          "name": "VIN+",
+          "kind": "passive"
+        },
+        {
+          "name": "VIN-",
+          "kind": "passive"
+        }
+      ],
+      "state": {
+        "current_ma": 0.0,
+        "bus_voltage": 5.0,
+        "power_mw": 0.0,
+        "measured": false
+      }
+    },
+    {
+      "type": "l298n",
+      "name": "L298N motor driver",
+      "category": "Output",
+      "props": {
+        "rpm": 200
+      },
+      "pins": [
+        {
+          "name": "ENA",
+          "kind": "input"
+        },
+        {
+          "name": "IN1",
+          "kind": "input"
+        },
+        {
+          "name": "IN2",
+          "kind": "input"
+        },
+        {
+          "name": "IN3",
+          "kind": "input"
+        },
+        {
+          "name": "IN4",
+          "kind": "input"
+        },
+        {
+          "name": "ENB",
+          "kind": "input"
+        },
+        {
+          "name": "12V",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "5V",
+          "kind": "power"
+        }
+      ],
+      "state": {
+        "speed": [
+          0.0,
+          0.0
+        ],
+        "revs": [
+          0.0,
+          0.0
+        ],
+        "rpm": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "type": "a4988",
+      "name": "A4988 stepper driver",
+      "category": "Output",
+      "props": {
+        "microsteps": 1
+      },
+      "pins": [
+        {
+          "name": "EN",
+          "kind": "input"
+        },
+        {
+          "name": "STEP",
+          "kind": "input"
+        },
+        {
+          "name": "DIR",
+          "kind": "input"
+        },
+        {
+          "name": "SLEEP",
+          "kind": "input"
+        },
+        {
+          "name": "RESET",
+          "kind": "input"
+        },
+        {
+          "name": "VDD",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "position": 0,
+        "angle": 0.0,
+        "steps": 0
+      }
+    },
+    {
+      "type": "uln2003",
+      "name": "28BYJ-48 + ULN2003",
+      "category": "Output",
+      "props": {},
+      "pins": [
+        {
+          "name": "IN1",
+          "kind": "input"
+        },
+        {
+          "name": "IN2",
+          "kind": "input"
+        },
+        {
+          "name": "IN3",
+          "kind": "input"
+        },
+        {
+          "name": "IN4",
+          "kind": "input"
+        },
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        }
+      ],
+      "state": {
+        "position": 0,
+        "angle": 0.0,
+        "coils": 0
+      }
+    },
+    {
+      "type": "74hc595",
+      "name": "74HC595 shift register",
+      "category": "Logic",
+      "props": {},
+      "pins": [
+        {
+          "name": "VCC",
+          "kind": "power"
+        },
+        {
+          "name": "GND",
+          "kind": "ground"
+        },
+        {
+          "name": "DS",
+          "kind": "input"
+        },
+        {
+          "name": "SHCP",
+          "kind": "input"
+        },
+        {
+          "name": "STCP",
+          "kind": "input"
+        },
+        {
+          "name": "OE",
+          "kind": "input"
+        },
+        {
+          "name": "MR",
+          "kind": "input"
+        },
+        {
+          "name": "Q7S",
+          "kind": "output"
+        },
+        {
+          "name": "Q0",
+          "kind": "output"
+        },
+        {
+          "name": "Q1",
+          "kind": "output"
+        },
+        {
+          "name": "Q2",
+          "kind": "output"
+        },
+        {
+          "name": "Q3",
+          "kind": "output"
+        },
+        {
+          "name": "Q4",
+          "kind": "output"
+        },
+        {
+          "name": "Q5",
+          "kind": "output"
+        },
+        {
+          "name": "Q6",
+          "kind": "output"
+        },
+        {
+          "name": "Q7",
+          "kind": "output"
+        }
+      ],
+      "state": {
+        "outputs": 0,
+        "shift": 0,
+        "enabled": true
+      }
+    }
+  ],
+  "boards": [
+    {
+      "id": "esp32-devkit-v1",
+      "name": "ESP32 DevKit V1 (DOIT, 30 pins)",
+      "left": [
+        {
+          "label": "EN",
+          "gpio": -2
+        },
+        {
+          "label": "VP",
+          "gpio": 36
+        },
+        {
+          "label": "VN",
+          "gpio": 39
+        },
+        {
+          "label": "D34",
+          "gpio": 34
+        },
+        {
+          "label": "D35",
+          "gpio": 35
+        },
+        {
+          "label": "D32",
+          "gpio": 32
+        },
+        {
+          "label": "D33",
+          "gpio": 33
+        },
+        {
+          "label": "D25",
+          "gpio": 25
+        },
+        {
+          "label": "D26",
+          "gpio": 26
+        },
+        {
+          "label": "D27",
+          "gpio": 27
+        },
+        {
+          "label": "D14",
+          "gpio": 14
+        },
+        {
+          "label": "D12",
+          "gpio": 12
+        },
+        {
+          "label": "D13",
+          "gpio": 13
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "VIN",
+          "gpio": -5
+        }
+      ],
+      "right": [
+        {
+          "label": "D23",
+          "gpio": 23
+        },
+        {
+          "label": "D22",
+          "gpio": 22
+        },
+        {
+          "label": "TX0",
+          "gpio": 1
+        },
+        {
+          "label": "RX0",
+          "gpio": 3
+        },
+        {
+          "label": "D21",
+          "gpio": 21
+        },
+        {
+          "label": "D19",
+          "gpio": 19
+        },
+        {
+          "label": "D18",
+          "gpio": 18
+        },
+        {
+          "label": "D5",
+          "gpio": 5
+        },
+        {
+          "label": "TX2",
+          "gpio": 17
+        },
+        {
+          "label": "RX2",
+          "gpio": 16
+        },
+        {
+          "label": "D4",
+          "gpio": 4
+        },
+        {
+          "label": "D2",
+          "gpio": 2
+        },
+        {
+          "label": "D15",
+          "gpio": 15
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "3V3",
+          "gpio": -3
+        }
+      ],
+      "led": 2
+    },
+    {
+      "id": "esp32-devkitc",
+      "name": "ESP32-DevKitC V4 (38 pins)",
+      "left": [
+        {
+          "label": "3V3",
+          "gpio": -3
+        },
+        {
+          "label": "EN",
+          "gpio": -2
+        },
+        {
+          "label": "SVP",
+          "gpio": 36
+        },
+        {
+          "label": "SVN",
+          "gpio": 39
+        },
+        {
+          "label": "IO34",
+          "gpio": 34
+        },
+        {
+          "label": "IO35",
+          "gpio": 35
+        },
+        {
+          "label": "IO32",
+          "gpio": 32
+        },
+        {
+          "label": "IO33",
+          "gpio": 33
+        },
+        {
+          "label": "IO25",
+          "gpio": 25
+        },
+        {
+          "label": "IO26",
+          "gpio": 26
+        },
+        {
+          "label": "IO27",
+          "gpio": 27
+        },
+        {
+          "label": "IO14",
+          "gpio": 14
+        },
+        {
+          "label": "IO12",
+          "gpio": 12
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "IO13",
+          "gpio": 13
+        },
+        {
+          "label": "SD2",
+          "gpio": 9
+        },
+        {
+          "label": "SD3",
+          "gpio": 10
+        },
+        {
+          "label": "CMD",
+          "gpio": 11
+        },
+        {
+          "label": "5V",
+          "gpio": -5
+        }
+      ],
+      "right": [
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "IO23",
+          "gpio": 23
+        },
+        {
+          "label": "IO22",
+          "gpio": 22
+        },
+        {
+          "label": "TXD0",
+          "gpio": 1
+        },
+        {
+          "label": "RXD0",
+          "gpio": 3
+        },
+        {
+          "label": "IO21",
+          "gpio": 21
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "IO19",
+          "gpio": 19
+        },
+        {
+          "label": "IO18",
+          "gpio": 18
+        },
+        {
+          "label": "IO5",
+          "gpio": 5
+        },
+        {
+          "label": "IO17",
+          "gpio": 17
+        },
+        {
+          "label": "IO16",
+          "gpio": 16
+        },
+        {
+          "label": "IO4",
+          "gpio": 4
+        },
+        {
+          "label": "IO0",
+          "gpio": 0
+        },
+        {
+          "label": "IO2",
+          "gpio": 2
+        },
+        {
+          "label": "IO15",
+          "gpio": 15
+        },
+        {
+          "label": "SD1",
+          "gpio": 8
+        },
+        {
+          "label": "SD0",
+          "gpio": 7
+        },
+        {
+          "label": "CLK",
+          "gpio": 6
+        }
+      ],
+      "led": null
+    },
+    {
+      "id": "nodemcu-32s",
+      "name": "NodeMCU-32S (38 pins)",
+      "left": [
+        {
+          "label": "3V3",
+          "gpio": -3
+        },
+        {
+          "label": "EN",
+          "gpio": -2
+        },
+        {
+          "label": "SVP",
+          "gpio": 36
+        },
+        {
+          "label": "SVN",
+          "gpio": 39
+        },
+        {
+          "label": "P34",
+          "gpio": 34
+        },
+        {
+          "label": "P35",
+          "gpio": 35
+        },
+        {
+          "label": "P32",
+          "gpio": 32
+        },
+        {
+          "label": "P33",
+          "gpio": 33
+        },
+        {
+          "label": "P25",
+          "gpio": 25
+        },
+        {
+          "label": "P26",
+          "gpio": 26
+        },
+        {
+          "label": "P27",
+          "gpio": 27
+        },
+        {
+          "label": "P14",
+          "gpio": 14
+        },
+        {
+          "label": "P12",
+          "gpio": 12
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "P13",
+          "gpio": 13
+        },
+        {
+          "label": "SD2",
+          "gpio": 9
+        },
+        {
+          "label": "SD3",
+          "gpio": 10
+        },
+        {
+          "label": "CMD",
+          "gpio": 11
+        },
+        {
+          "label": "5V",
+          "gpio": -5
+        }
+      ],
+      "right": [
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "P23",
+          "gpio": 23
+        },
+        {
+          "label": "P22",
+          "gpio": 22
+        },
+        {
+          "label": "TX",
+          "gpio": 1
+        },
+        {
+          "label": "RX",
+          "gpio": 3
+        },
+        {
+          "label": "P21",
+          "gpio": 21
+        },
+        {
+          "label": "GND",
+          "gpio": -1
+        },
+        {
+          "label": "P19",
+          "gpio": 19
+        },
+        {
+          "label": "P18",
+          "gpio": 18
+        },
+        {
+          "label": "P5",
+          "gpio": 5
+        },
+        {
+          "label": "P17",
+          "gpio": 17
+        },
+        {
+          "label": "P16",
+          "gpio": 16
+        },
+        {
+          "label": "P4",
+          "gpio": 4
+        },
+        {
+          "label": "P0",
+          "gpio": 0
+        },
+        {
+          "label": "P2",
+          "gpio": 2
+        },
+        {
+          "label": "P15",
+          "gpio": 15
+        },
+        {
+          "label": "SD1",
+          "gpio": 8
+        },
+        {
+          "label": "SD0",
+          "gpio": 7
+        },
+        {
+          "label": "CLK",
+          "gpio": 6
+        }
+      ],
+      "led": 2
+    }
+  ],
+  "pad_numbers": {
+    "0": 0,
+    "GPIO0": 0,
+    "IO0": 0,
+    "D0": 0,
+    "G0": 0,
+    "P0": 0,
+    "gpio0": 0,
+    "d0": 0,
+    "1": 1,
+    "GPIO1": 1,
+    "IO1": 1,
+    "D1": 1,
+    "G1": 1,
+    "P1": 1,
+    "gpio1": 1,
+    "d1": 1,
+    "2": 2,
+    "GPIO2": 2,
+    "IO2": 2,
+    "D2": 2,
+    "G2": 2,
+    "P2": 2,
+    "gpio2": 2,
+    "d2": 2,
+    "3": 3,
+    "GPIO3": 3,
+    "IO3": 3,
+    "D3": 3,
+    "G3": 3,
+    "P3": 3,
+    "gpio3": 3,
+    "d3": 3,
+    "4": 4,
+    "GPIO4": 4,
+    "IO4": 4,
+    "D4": 4,
+    "G4": 4,
+    "P4": 4,
+    "gpio4": 4,
+    "d4": 4,
+    "5": 5,
+    "GPIO5": 5,
+    "IO5": 5,
+    "D5": 5,
+    "G5": 5,
+    "P5": 5,
+    "gpio5": 5,
+    "d5": 5,
+    "6": 6,
+    "GPIO6": 6,
+    "IO6": 6,
+    "D6": 6,
+    "G6": 6,
+    "P6": 6,
+    "gpio6": 6,
+    "d6": 6,
+    "7": 7,
+    "GPIO7": 7,
+    "IO7": 7,
+    "D7": 7,
+    "G7": 7,
+    "P7": 7,
+    "gpio7": 7,
+    "d7": 7,
+    "8": 8,
+    "GPIO8": 8,
+    "IO8": 8,
+    "D8": 8,
+    "G8": 8,
+    "P8": 8,
+    "gpio8": 8,
+    "d8": 8,
+    "9": 9,
+    "GPIO9": 9,
+    "IO9": 9,
+    "D9": 9,
+    "G9": 9,
+    "P9": 9,
+    "gpio9": 9,
+    "d9": 9,
+    "10": 10,
+    "GPIO10": 10,
+    "IO10": 10,
+    "D10": 10,
+    "G10": 10,
+    "P10": 10,
+    "gpio10": 10,
+    "d10": 10,
+    "11": 11,
+    "GPIO11": 11,
+    "IO11": 11,
+    "D11": 11,
+    "G11": 11,
+    "P11": 11,
+    "gpio11": 11,
+    "d11": 11,
+    "12": 12,
+    "GPIO12": 12,
+    "IO12": 12,
+    "D12": 12,
+    "G12": 12,
+    "P12": 12,
+    "gpio12": 12,
+    "d12": 12,
+    "13": 13,
+    "GPIO13": 13,
+    "IO13": 13,
+    "D13": 13,
+    "G13": 13,
+    "P13": 13,
+    "gpio13": 13,
+    "d13": 13,
+    "14": 14,
+    "GPIO14": 14,
+    "IO14": 14,
+    "D14": 14,
+    "G14": 14,
+    "P14": 14,
+    "gpio14": 14,
+    "d14": 14,
+    "15": 15,
+    "GPIO15": 15,
+    "IO15": 15,
+    "D15": 15,
+    "G15": 15,
+    "P15": 15,
+    "gpio15": 15,
+    "d15": 15,
+    "16": 16,
+    "GPIO16": 16,
+    "IO16": 16,
+    "D16": 16,
+    "G16": 16,
+    "P16": 16,
+    "gpio16": 16,
+    "d16": 16,
+    "17": 17,
+    "GPIO17": 17,
+    "IO17": 17,
+    "D17": 17,
+    "G17": 17,
+    "P17": 17,
+    "gpio17": 17,
+    "d17": 17,
+    "18": 18,
+    "GPIO18": 18,
+    "IO18": 18,
+    "D18": 18,
+    "G18": 18,
+    "P18": 18,
+    "gpio18": 18,
+    "d18": 18,
+    "19": 19,
+    "GPIO19": 19,
+    "IO19": 19,
+    "D19": 19,
+    "G19": 19,
+    "P19": 19,
+    "gpio19": 19,
+    "d19": 19,
+    "20": null,
+    "GPIO20": null,
+    "IO20": null,
+    "D20": null,
+    "G20": null,
+    "P20": null,
+    "gpio20": null,
+    "d20": null,
+    "21": 21,
+    "GPIO21": 21,
+    "IO21": 21,
+    "D21": 21,
+    "G21": 21,
+    "P21": 21,
+    "gpio21": 21,
+    "d21": 21,
+    "22": 22,
+    "GPIO22": 22,
+    "IO22": 22,
+    "D22": 22,
+    "G22": 22,
+    "P22": 22,
+    "gpio22": 22,
+    "d22": 22,
+    "23": 23,
+    "GPIO23": 23,
+    "IO23": 23,
+    "D23": 23,
+    "G23": 23,
+    "P23": 23,
+    "gpio23": 23,
+    "d23": 23,
+    "24": null,
+    "GPIO24": null,
+    "IO24": null,
+    "D24": null,
+    "G24": null,
+    "P24": null,
+    "gpio24": null,
+    "d24": null,
+    "25": 25,
+    "GPIO25": 25,
+    "IO25": 25,
+    "D25": 25,
+    "G25": 25,
+    "P25": 25,
+    "gpio25": 25,
+    "d25": 25,
+    "26": 26,
+    "GPIO26": 26,
+    "IO26": 26,
+    "D26": 26,
+    "G26": 26,
+    "P26": 26,
+    "gpio26": 26,
+    "d26": 26,
+    "27": 27,
+    "GPIO27": 27,
+    "IO27": 27,
+    "D27": 27,
+    "G27": 27,
+    "P27": 27,
+    "gpio27": 27,
+    "d27": 27,
+    "28": null,
+    "GPIO28": null,
+    "IO28": null,
+    "D28": null,
+    "G28": null,
+    "P28": null,
+    "gpio28": null,
+    "d28": null,
+    "29": null,
+    "GPIO29": null,
+    "IO29": null,
+    "D29": null,
+    "G29": null,
+    "P29": null,
+    "gpio29": null,
+    "d29": null,
+    "30": null,
+    "GPIO30": null,
+    "IO30": null,
+    "D30": null,
+    "G30": null,
+    "P30": null,
+    "gpio30": null,
+    "d30": null,
+    "31": null,
+    "GPIO31": null,
+    "IO31": null,
+    "D31": null,
+    "G31": null,
+    "P31": null,
+    "gpio31": null,
+    "d31": null,
+    "32": 32,
+    "GPIO32": 32,
+    "IO32": 32,
+    "D32": 32,
+    "G32": 32,
+    "P32": 32,
+    "gpio32": 32,
+    "d32": 32,
+    "33": 33,
+    "GPIO33": 33,
+    "IO33": 33,
+    "D33": 33,
+    "G33": 33,
+    "P33": 33,
+    "gpio33": 33,
+    "d33": 33,
+    "34": 34,
+    "GPIO34": 34,
+    "IO34": 34,
+    "D34": 34,
+    "G34": 34,
+    "P34": 34,
+    "gpio34": 34,
+    "d34": 34,
+    "35": 35,
+    "GPIO35": 35,
+    "IO35": 35,
+    "D35": 35,
+    "G35": 35,
+    "P35": 35,
+    "gpio35": 35,
+    "d35": 35,
+    "36": 36,
+    "GPIO36": 36,
+    "IO36": 36,
+    "D36": 36,
+    "G36": 36,
+    "P36": 36,
+    "gpio36": 36,
+    "d36": 36,
+    "37": 37,
+    "GPIO37": 37,
+    "IO37": 37,
+    "D37": 37,
+    "G37": 37,
+    "P37": 37,
+    "gpio37": 37,
+    "d37": 37,
+    "38": 38,
+    "GPIO38": 38,
+    "IO38": 38,
+    "D38": 38,
+    "G38": 38,
+    "P38": 38,
+    "gpio38": 38,
+    "d38": 38,
+    "39": 39,
+    "GPIO39": 39,
+    "IO39": 39,
+    "D39": 39,
+    "G39": 39,
+    "P39": 39,
+    "gpio39": 39,
+    "d39": 39,
+    "40": null,
+    "GPIO40": null,
+    "IO40": null,
+    "D40": null,
+    "G40": null,
+    "P40": null,
+    "gpio40": null,
+    "d40": null,
+    "41": null,
+    "GPIO41": null,
+    "IO41": null,
+    "D41": null,
+    "G41": null,
+    "P41": null,
+    "gpio41": null,
+    "d41": null,
+    "42": null,
+    "GPIO42": null,
+    "IO42": null,
+    "D42": null,
+    "G42": null,
+    "P42": null,
+    "gpio42": null,
+    "d42": null,
+    "43": null,
+    "GPIO43": null,
+    "IO43": null,
+    "D43": null,
+    "G43": null,
+    "P43": null,
+    "gpio43": null,
+    "d43": null,
+    "44": null,
+    "GPIO44": null,
+    "IO44": null,
+    "D44": null,
+    "G44": null,
+    "P44": null,
+    "gpio44": null,
+    "d44": null,
+    "45": null,
+    "GPIO45": null,
+    "IO45": null,
+    "D45": null,
+    "G45": null,
+    "P45": null,
+    "gpio45": null,
+    "d45": null,
+    "TX": 1,
+    "TX0": 1,
+    "TXD0": 1,
+    "U0TXD": 1,
+    "RX": 3,
+    "RX0": 3,
+    "RXD0": 3,
+    "U0RXD": 3,
+    "TX2": 17,
+    "U2TXD": 17,
+    "RX2": 16,
+    "U2RXD": 16,
+    "VP": 36,
+    "SVP": 36,
+    "SENSOR_VP": 36,
+    "VN": 39,
+    "SVN": 39,
+    "SENSOR_VN": 39,
+    "SDA": 21,
+    "SCL": 22,
+    "MOSI": 23,
+    "MISO": 19,
+    "SCK": 18,
+    "SCLK": 18,
+    "SS": 5,
+    "CS": 5,
+    "LED": 2,
+    "BUILTIN_LED": 2,
+    "LED_BUILTIN": 2,
+    "BOOT": 0,
+    "DAC1": 25,
+    "DAC2": 26,
+    "CLK": 6,
+    "SD0": 7,
+    "SD1": 8,
+    "SD2": 9,
+    "SD3": 10,
+    "CMD": 11,
+    "A0": 36,
+    "A3": 39,
+    "A4": 32,
+    "A5": 33,
+    "A6": 34,
+    "A7": 35,
+    "A10": 4,
+    "A11": 0,
+    "A12": 2,
+    "A13": 15,
+    "A14": 13,
+    "A15": 12,
+    "A16": 14,
+    "A17": 27,
+    "A18": 25,
+    "A19": 26,
+    "T0": 4,
+    "T1": 0,
+    "T2": 2,
+    "T3": 15,
+    "T4": 13,
+    "T5": 12,
+    "T6": 14,
+    "T7": 27,
+    "T8": 33,
+    "T9": 32,
+    "sda": 21,
+    " d4 ": 4,
+    "EN": null,
+    "GND": null,
+    "3V3": null,
+    "VIN": null,
+    "5V": null,
+    "A1": null,
+    "T10": null,
+    "GPIOX": null,
+    "": null,
+    "banana": null
+  }
+}

@@ -1,0 +1,14 @@
+[package]
+name = "esp32sim-devices"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "devices"
+
+[dependencies]
+esp32-soc = { path = "../esp32-soc" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+serde_yaml = "0.9"
+fatfs = "0.3"

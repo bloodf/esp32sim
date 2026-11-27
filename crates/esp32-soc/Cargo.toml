@@ -1,0 +1,13 @@
+[package]
+name = "esp32-soc"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+xtensa-core = { path = "../xtensa-core" }
+md-5 = "0.10"
+object = { version = "0.36", default-features = false, features = ["read_core", "elf", "std"] }
+corosensei = "0.2"
+
+[dev-dependencies]
+xtensa-core = { path = "../xtensa-core" }
